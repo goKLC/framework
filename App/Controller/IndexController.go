@@ -11,7 +11,9 @@ var IndexController = indexController{}
 
 func (ic indexController) Index(r *goKLC.Request) *goKLC.Response {
 	session := goKLC.NewSession(r)
-	session.Set("foo", "bar")
+	session.Key = "Foo"
+	session.Value = "Bar"
+	session.Set()
 
 	return goKLC.NewResponse().Ok(goKLC.NewView("index", goKLC.Context{}).Render())
 }
