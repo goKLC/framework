@@ -21,6 +21,9 @@ func (ic indexController) Index(r *goKLC.Request) *goKLC.Response {
 func (ic indexController) User(r *goKLC.Request) *goKLC.Response {
 	session := goKLC.NewSession(r)
 	value := session.Get("foo", "baz")
+	app := goKLC.GetApp()
+
+	app.Log().Info("test logger", nil)
 
 	fmt.Println(value)
 
