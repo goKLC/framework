@@ -18,7 +18,7 @@ func config() map[string]interface{} {
 		"ViewFolder":        "./View/",
 		"ViewFileExtension": ".html",
 
-		"DBType":     "mysql",
+		"DBType":     goKLC.MYSQL,
 		"DBUser":     "root",
 		"DBPassword": "password",
 		"DBHost":     "127.0.0.1",
