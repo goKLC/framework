@@ -2,20 +2,22 @@ package Providers
 
 import (
 	"github.com/goKLC/goKLC"
-	"github.com/mkilic91/goLog"
+	"github.com/goKLC/goLog"
 )
 
 func init() {
 	var app = goKLC.GetApp()
 
-	var config *goLog.Config
-	var logger *goLog.Log
+	logger, config := goLog.New()
 
-	logger, config = goLog.New()
+	fileHandler := goLog.NewFileHandler()
+	fileHandler.Path = "logs"
+	fileHandler.FileName = "goKLC.log"
 
-	config.FileName = "goKLC.log"
-	config.Path = "logs"
-	config.PrintTerminal = true
+	terminalHandler := goLog.NewTerminalHandler()
+
+	config.AddHandler(fileHandler)
+	config.AddHandler(terminalHandler)
 
 	app.SetLogger(logger)
 }
