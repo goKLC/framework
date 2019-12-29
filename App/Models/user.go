@@ -19,5 +19,7 @@ type User struct {
 }
 
 func init() {
-	goKLC.GetApp().DB().AutoMigrate(&User{})
+	app := goKLC.GetApp()
+	app.DB().AutoMigrate(&User{})
+	app.Auth().Model = &User{}
 }

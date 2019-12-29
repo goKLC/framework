@@ -15,6 +15,8 @@ func (ic indexController) Index(r *goKLC.Request) *goKLC.Response {
 	session.Value = "Bar"
 	session.Set()
 
+	goKLC.GetApp().Auth().LoginById(1, r)
+
 	return goKLC.NewResponse().Ok(goKLC.NewView("index", goKLC.Context{}).Render())
 }
 
@@ -39,6 +41,10 @@ func (ic indexController) Get(r *goKLC.Request) *goKLC.Response {
 	value := session.Get("baz", "foo")
 
 	fmt.Println(value)
+
+	user := goKLC.GetApp().Auth().User(r)
+
+	fmt.Println(user)
 
 	return goKLC.NewResponse().Ok("indexController@get")
 }

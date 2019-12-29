@@ -13,7 +13,12 @@ var AuthMiddleware = authMiddleware{}
 
 func (a authMiddleware) Handle(request *goKLC.Request) *goKLC.Response {
 
-	fmt.Println("authMiddleware@handle")
+	auth := goKLC.GetApp().Auth()
+
+	if !auth.Check(request) {
+
+		return goKLC.NewResponse().Error("unauthorization action")
+	}
 
 	return nil
 }
