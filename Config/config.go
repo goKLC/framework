@@ -1,6 +1,8 @@
 package Config
 
-import "github.com/goKLC/goKLC"
+import (
+	"github.com/goKLC/goKLC"
+)
 
 var app *goKLC.App
 
@@ -24,5 +26,8 @@ func config() map[string]interface{} {
 		"DBHost":     "127.0.0.1",
 		"DBPost":     "3306",
 		"DBName":     "go_klc",
+
+		"AssetsFolder": "public",
+		"AssetsPrefix": "assets",
 	}
 }
