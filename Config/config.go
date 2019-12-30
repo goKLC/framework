@@ -15,6 +15,8 @@ func init() {
 func config() map[string]interface{} {
 
 	return map[string]interface{}{
+		"AppDomain": "http://localhost:8091",
+
 		"HttpPort":          8091,
 		"MaxFormMemory":     1024 * 1024 * 10,
 		"ViewFolder":        "./View/",

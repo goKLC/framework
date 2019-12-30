@@ -15,9 +15,9 @@ func init() {
 
 func Router() {
 	app.Route().Get("index", Controller.IndexController.Index).Name("index")
-	app.Route().Get("/index/a", Controller.IndexController.Get).Name("idex.a").Middleware(Middleware.AuthMiddleware)
+	app.Route().Get("/index/auth", Controller.IndexController.Get).Name("index.auth").Middleware(Middleware.AuthMiddleware)
 	app.Route().Get("/index/$user", Controller.IndexController.User)
-	app.Route().Post("/index/a", Controller.IndexController.Post)
+	app.Route().Post("/index/auth", Controller.IndexController.Post)
 	app.Route().Get("/index/$user/profile/$name", Controller.IndexController.Profile)
 
 	adminGroup := app.Route().Group("admin").Middleware(Middleware.AdminMiddleware).Name("admin")
