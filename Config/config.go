@@ -26,7 +26,7 @@ func config() map[string]interface{} {
 		"DBUser":     "root",
 		"DBPassword": "password",
 		"DBHost":     "127.0.0.1",
-		"DBPost":     "3306",
+		"DBPort":     "3306",
 		"DBName":     "go_klc",
 
 		"AssetsFolder": "public",
