@@ -11,14 +11,14 @@ type logMiddleware struct {
 
 var LogMiddleware = logMiddleware{}
 
-func (lm logMiddleware) Handle(request *goKLC.Request) *goKLC.Response {
+func (lm logMiddleware) Handle(request *goKLC.Request) goKLC.Response {
 
 	fmt.Println("logMiddleware@handle")
 
 	return nil
 }
 
-func (lm logMiddleware) Terminate(response *goKLC.Response) {
+func (lm logMiddleware) Terminate(response goKLC.Response) {
 
 	fmt.Println("logMiddleware@terminate")
 }

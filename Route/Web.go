@@ -2,7 +2,6 @@ package Route
 
 import (
 	"github.com/goKLC/framework/App/Controller"
-	"github.com/goKLC/framework/App/Middleware"
 	"github.com/goKLC/goKLC"
 )
 
@@ -14,14 +13,5 @@ func init() {
 }
 
 func Router() {
-	app.Route().Get("index", Controller.IndexController.Index).Name("index")
-	app.Route().Get("/index/auth", Controller.IndexController.Get).Name("index.auth").Middleware(Middleware.AuthMiddleware)
-	app.Route().Get("/index/$user", Controller.IndexController.User)
-	app.Route().Post("/index/auth", Controller.IndexController.Post)
-	app.Route().Get("/index/$user/profile/$name", Controller.IndexController.Profile)
-
-	adminGroup := app.Route().Group("admin").Middleware(Middleware.AdminMiddleware).Name("admin")
-	adminGroup.Route().Get("/", Controller.IndexController.Index).Name("index")
-	adminGroup.Route().Get("/user", Controller.IndexController.User).Middleware(Middleware.AuthMiddleware).Name("user")
-	adminGroup.Route().Get("/admin", Controller.IndexController.Profile)
+	app.Route().Get("/", Controller.IndexController.Index).Name("index")
 }

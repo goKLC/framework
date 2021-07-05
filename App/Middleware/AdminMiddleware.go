@@ -11,7 +11,7 @@ type adminMiddleware struct {
 
 var AdminMiddleware = adminMiddleware{}
 
-func (a adminMiddleware) Handle(r *goKLC.Request) *goKLC.Response {
+func (a adminMiddleware) Handle(r *goKLC.Request) goKLC.Response {
 
 	fmt.Println("adminMiddleware@handle")
 
